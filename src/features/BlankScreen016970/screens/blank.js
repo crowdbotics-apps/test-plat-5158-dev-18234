@@ -21,7 +21,7 @@ export class Blank extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { DateTimePicker_4: new Date("") }
+    this.state = { DateTimePicker_4: new Date(""), TextInput_5: "" }
   }
   static navigationOptions = ({ navigation }) => {
     return { headerLeft: <SlideMenuIcon navigationProps={navigation} /> }
@@ -33,7 +33,11 @@ export class Blank extends React.Component {
         style={styles.Button_2}
         onPress={() => alert("Pressed!")}
       />
-      <Button title="Press me!" onPress={() => alert("Pressed!")} />
+      <Button
+        title="Press me!"
+        style={styles.Button_3}
+        onPress={() => alert("Pressed!")}
+      />
       <DateTimePicker
         showIcon={false}
         date={this.state.DateTimePicker_4}
@@ -41,15 +45,21 @@ export class Blank extends React.Component {
           this.setState({ DateTimePicker_4: selectedDate })
         }
       />
+      <TextInput
+        placeholder="Sample text input placeholder"
+        value={this.state.TextInput_5}
+        onChangeText={nextValue => this.setState({ TextInput_5: nextValue })}
+      />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   View_1: {},
-  Button_2: { height: 55 },
-  Button_3: {},
-  DateTimePicker_4: {}
+  Button_2: { height: 20 },
+  Button_3: { height: 50 },
+  DateTimePicker_4: {},
+  TextInput_5: {}
 })
 
 const mapStateToProps = state => {
